@@ -1,0 +1,4 @@
+metric,q_exponent,spectral_dimension_Ds,hub_transport_share,max_degree,bulk_avg_degree,topological_phase,sim_time_sec
+Unweighted (q=0),0.0,4.6225,0.1873,813,13.6,SHORTCUT EXPLOSION (Wormhole collapse),3.97
+ROI weighted (q=0.25),0.25,4.2606,0.1157,813,13.6,STABLE 4D PHASE (4D Spacetime),4.99
+Symmetric (q=0.50),0.5,4.0141,0.0859,813,13.6,STABLE 4D PHASE (4D Spacetime),5.58
