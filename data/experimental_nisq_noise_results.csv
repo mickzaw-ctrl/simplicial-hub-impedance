@@ -1,0 +1,3 @@
+metric,shots,p_hub_ideal,p_hub_nisq_noisy,relative_noise_error,resilience_status
+Unweighted (q=0),4000,0.0112,0.057,4.0667,NOISE DEGRADATION
+ROI weighted (q=0.25),4000,0.187,0.058,0.6898,NOISE DEGRADATION

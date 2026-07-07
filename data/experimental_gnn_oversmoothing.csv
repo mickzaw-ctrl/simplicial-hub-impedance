@@ -1,0 +1,16 @@
+gnn_layer,variance_q0_unweighted,variance_q25_roi,variance_q50_symmetric,ai_diagnosis
+1,0.00906,0.009422,0.009817,High diversity
+2,0.003847,0.004637,0.005159,AI Collapse (Oversmoothing)
+3,0.002443,0.003251,0.00382,AI Collapse (Oversmoothing)
+4,0.001704,0.002523,0.003131,AI Collapse (Oversmoothing)
+5,0.001249,0.002041,0.00267,AI Collapse (Oversmoothing)
+6,0.000936,0.001687,0.002327,AI Collapse (Oversmoothing)
+7,0.000714,0.001415,0.002057,AI Collapse (Oversmoothing)
+8,0.000551,0.0012,0.001837,AI Collapse (Oversmoothing)
+9,0.000429,0.001026,0.001654,AI Collapse (Oversmoothing)
+10,0.000337,0.000882,0.001498,AI Collapse (Oversmoothing)
+11,0.000266,0.000763,0.001363,AI Collapse (Oversmoothing)
+12,0.000211,0.000663,0.001246,AI Collapse (Oversmoothing)
+13,0.000168,0.000578,0.001143,AI Collapse (Oversmoothing)
+14,0.000135,0.000506,0.001052,AI Collapse (Oversmoothing)
+15,0.000109,0.000443,0.00097,AI Collapse (Oversmoothing)
