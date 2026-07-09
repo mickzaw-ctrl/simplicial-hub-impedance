@@ -1,0 +1,1 @@
+{"status":"unavailable","provider":"willow","backend":"Google Willow","benchmark":"rcs","qubits":8,"depth":12,"shots":1024,"job_id":null,"counts":null,"metrics":{},"message":"Google Willow is not a public cloud backend for arbitrary tasks. Use dry-run/local/ibm/aws/azure or export the circuit to QASM.","elapsed_seconds":6.177e-6,"config":{...}}

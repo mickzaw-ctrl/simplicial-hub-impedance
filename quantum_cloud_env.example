@@ -1,0 +1,43 @@
+# Quantum Cloud Bridge — example environment configuration
+# Do NOT put real secrets here if the file is going to be committed.
+# Safest to set variables locally in a terminal or in a CI/CD secret manager.
+
+# ============================================================
+# IBM Quantum
+# ============================================================
+# export IBM_QUANTUM_TOKEN="paste_your_ibm_quantum_token"
+# export IBM_QUANTUM_INSTANCE="hub/group/project_or_CRN_optional"
+
+# Example run:
+# python quantum_cloud_bridge.py --provider ibm --backend ibm_brisbane --benchmark bell --qubits 2 --shots 1024
+
+
+# ============================================================
+# AWS Braket
+# ============================================================
+# export AWS_PROFILE="default"
+# export AWS_REGION="us-east-1"
+# export BRAKET_S3_BUCKET="your-braket-results-bucket"
+# export BRAKET_S3_PREFIX="quantum-cloud-bridge"
+
+# Example run:
+# python quantum_cloud_bridge.py --provider aws \
+#   --backend arn:aws:braket:us-east-1::device/quantum-simulator/amazon/sv1 \
+#   --benchmark bell --qubits 2 --shots 1024
+
+
+# ============================================================
+# Azure Quantum
+# ============================================================
+# export AZURE_QUANTUM_RESOURCE_ID="/subscriptions/.../resourceGroups/.../providers/Microsoft.Quantum/Workspaces/..."
+# export AZURE_QUANTUM_LOCATION="eastus"
+
+# Example run:
+# python quantum_cloud_bridge.py --provider azure --backend ionq.simulator --benchmark bell --qubits 2 --shots 1024
+
+
+# ============================================================
+# Local test without cloud
+# ============================================================
+# python quantum_cloud_bridge.py --provider dry-run --benchmark bell --qubits 2
+# python quantum_cloud_bridge.py --provider local --benchmark bell --qubits 2 --shots 1024
