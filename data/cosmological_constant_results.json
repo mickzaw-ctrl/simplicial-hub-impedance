@@ -1,0 +1,889 @@
+{
+  "metadata": {
+    "title": "Cosmological Constant Problem \u2014 Analysis Report",
+    "author": "Micha\u0142 \u015alusarczyk",
+    "date": "July 2026",
+    "description": "Comprehensive analysis of the \u039b-problem: vacuum energy discrepancy, simplicial gravity regulation, holographic bounds, RG flow, dynamical dark energy, and landscape scanning."
+  },
+  "physical_constants": {
+    "H0_km_s_Mpc": 67.4,
+    "omega_matter": 0.315,
+    "omega_lambda": 0.685,
+    "omega_radiation": 9.15e-05,
+    "rho_critical_kg_m3": 8.531455745339613e-27,
+    "rho_lambda_observed_kg_m3": 5.844047185557636e-27,
+    "lambda_observed_1_m2": 1.0906276874616962e-52,
+    "planck_length_m": 1.6164857787771846e-35,
+    "planck_energy_eV": 1.2213768614683728e+28
+  },
+  "vacuum_energy_discrepancy": [
+    {
+      "cutoff": "Planck scale",
+      "cutoff_energy_eV": 1.2213768614683728e+28,
+      "cutoff_length_m": 1.6164857787771846e-35,
+      "rho_vacuum_J_m3": 1.1642235902699842e+116,
+      "rho_vacuum_kg_m3": 1.29530826896604e+99,
+      "lambda_theory_1_m2": 2.4173300062046747e+73,
+      "discrepancy_log10": 125.3456594241525,
+      "notes": "Natural UV cutoff for quantum gravity"
+    },
+    {
+      "cutoff": "GUT scale",
+      "cutoff_energy_eV": 1e+16,
+      "cutoff_length_m": 1.974338327091136e-23,
+      "rho_vacuum_J_m3": 5.2316374775155987e+67,
+      "rho_vacuum_kg_m3": 5.820688862082837e+50,
+      "lambda_theory_1_m2": 1.086268510763524e+25,
+      "discrepancy_log10": 76.9982606713929,
+      "notes": "Grand Unification scale"
+    },
+    {
+      "cutoff": "Electroweak",
+      "cutoff_energy_eV": 1000.0,
+      "cutoff_length_m": 1.974338327091136e-10,
+      "rho_vacuum_J_m3": 5231637477515601.0,
+      "rho_vacuum_kg_m3": 0.058206888620828394,
+      "lambda_theory_1_m2": 1.0862685107635243e-27,
+      "discrepancy_log10": 24.9982606713929,
+      "notes": "Electroweak symmetry breaking scale"
+    },
+    {
+      "cutoff": "QCD scale",
+      "cutoff_energy_eV": 100000000.0,
+      "cutoff_length_m": 1.974338327091136e-15,
+      "rho_vacuum_J_m3": 5.2316374775156005e+35,
+      "rho_vacuum_kg_m3": 5.820688862082839e+18,
+      "lambda_theory_1_m2": 1.0862685107635242e-07,
+      "discrepancy_log10": 44.9982606713929,
+      "notes": "\u039b_QCD \u2014 chiral symmetry breaking"
+    },
+    {
+      "cutoff": "eV scale",
+      "cutoff_energy_eV": 0.001,
+      "cutoff_length_m": 0.00019743383270911358,
+      "rho_vacuum_J_m3": 5.231637477515599e-09,
+      "rho_vacuum_kg_m3": 5.820688862082837e-26,
+      "lambda_theory_1_m2": 1.0862685107635241e-51,
+      "discrepancy_log10": 0.9982606713928979,
+      "notes": "Lowest reasonable particle physics scale"
+    }
+  ],
+  "simplicial_lambda_analysis": [
+    {
+      "q_impedance": 0.0,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 8.154805159837083e-52,
+      "spectral_dimension": 2.0,
+      "vacuum_suppression": 0.13374049607378785,
+      "notes": "q=0.00: D_s=2.0, suppression=1.34e-01"
+    },
+    {
+      "q_impedance": 0.05,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 8.823898309642506e-52,
+      "spectral_dimension": 2.4,
+      "vacuum_suppression": 0.12359930375329566,
+      "notes": "q=0.05: D_s=2.4, suppression=1.24e-01"
+    },
+    {
+      "q_impedance": 0.1,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 9.539655852348915e-52,
+      "spectral_dimension": 2.8,
+      "vacuum_suppression": 0.11432568473559293,
+      "notes": "q=0.10: D_s=2.8, suppression=1.14e-01"
+    },
+    {
+      "q_impedance": 0.15,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 1.0305508946610455e-51,
+      "spectral_dimension": 3.2,
+      "vacuum_suppression": 0.10582958038384026,
+      "notes": "q=0.15: D_s=3.2, suppression=1.06e-01"
+    },
+    {
+      "q_impedance": 0.2,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 1.1125146145667468e-51,
+      "spectral_dimension": 3.6,
+      "vacuum_suppression": 0.09803266161015114,
+      "notes": "q=0.20: D_s=3.6, suppression=9.80e-02"
+    },
+    {
+      "q_impedance": 0.25,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 1.200252934225958e-51,
+      "spectral_dimension": 4.0,
+      "vacuum_suppression": 0.09086648791781883,
+      "notes": "q=0.25: D_s=4.0, suppression=9.09e-02"
+    },
+    {
+      "q_impedance": 0.3,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 1.2941911274600506e-51,
+      "spectral_dimension": 4.5,
+      "vacuum_suppression": 0.08427099091632136,
+      "notes": "q=0.30: D_s=4.5, suppression=8.43e-02"
+    },
+    {
+      "q_impedance": 0.5,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 1.7415780761508632e-51,
+      "spectral_dimension": 4.9,
+      "vacuum_suppression": 0.06262295686864291,
+      "notes": "q=0.50: D_s=4.9, suppression=6.26e-02"
+    },
+    {
+      "q_impedance": 1.0,
+      "n_hubs": 14,
+      "hub_fraction": 0.0014,
+      "effective_lambda_1_m2": 3.587543433967127e-51,
+      "spectral_dimension": 5.5,
+      "vacuum_suppression": 0.030400403717361364,
+      "notes": "q=1.00: D_s=5.5, suppression=3.04e-02"
+    }
+  ],
+  "holographic_bound": {
+    "observable_universe": {
+      "radius_m": 4.4e+26,
+      "area_m2": 2.4328493509399364e+54,
+      "max_entropy": 2.327616618409608e+123,
+      "max_energy_J": 2.6629498799645674e+70,
+      "max_density_J_m3": 7.46305004347642e-11,
+      "ratio_to_observed": 0.1420821050734536,
+      "ratio_to_planck": 1.6110900611124979e-124
+    },
+    "galaxy": {
+      "radius_m": 5e+20,
+      "area_m2": 3.141592653589793e+42,
+      "max_entropy": 3.0057032779049686e+111,
+      "max_energy_J": 3.026079409050644e+64,
+      "max_density_J_m3": 57.793859536681396,
+      "ratio_to_observed": 110028382168.88246,
+      "ratio_to_planck": 1.2476281433255183e-112
+    },
+    "solar_system": {
+      "radius_m": 1e+16,
+      "area_m2": 1.2566370614359173e+33,
+      "max_entropy": 1.2022813111619874e+102,
+      "max_energy_J": 6.05215881810129e+59,
+      "max_density_J_m3": 144484648841.70352,
+      "ratio_to_observed": 2.7507095542220623e+20,
+      "ratio_to_planck": 3.119070358313796e-103
+    }
+  },
+  "running_lambda": [
+    {
+      "scale_eV": 0.0001,
+      "scale_name": "100.0 \u03bceV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 0.0012689610031679222,
+      "scale_name": "1.3 meV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 0.01610262027560939,
+      "scale_name": "16.1 meV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 0.20433597178569415,
+      "scale_name": "204.3 meV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 2.592943797404667,
+      "scale_name": "2.6 eV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 32.90344562312671,
+      "scale_name": "32.9 eV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 417.53189365604004,
+      "scale_name": "417.5 eV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 5298.316906283702,
+      "scale_name": "5.3 keV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 67233.57536499335,
+      "scale_name": "67.2 keV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 853167.8524172815,
+      "scale_name": "853.2 keV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 10826367.338740563,
+      "scale_name": "10.8 MeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 137382379.5883261,
+      "scale_name": "137.4 MeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 1743328822.1999872,
+      "scale_name": "1.7 GeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 22122162910.704502,
+      "scale_name": "22.1 GeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 280721620394.117,
+      "scale_name": "280.7 GeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 3562247890262.451,
+      "scale_name": "3.6 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 45203536563602.41,
+      "scale_name": "45.2 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 573615251044865.8,
+      "scale_name": "573.6 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 7278953843983161.0,
+      "scale_name": "7279.0 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 9.236708571873846e+16,
+      "scale_name": "92367.1 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 1.172102297533484e+18,
+      "scale_name": "1172102.3 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 1.4873521072935117e+19,
+      "scale_name": "14873521.1 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 1.887391822135092e+20,
+      "scale_name": "188739182.2 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 2.395026619987491e+21,
+      "scale_name": "2395026620.0 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 3.0391953823131947e+22,
+      "scale_name": "30391953823.1 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 3.8566204211634563e+23,
+      "scale_name": "385662042116.3 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 4.893900918477499e+24,
+      "scale_name": "4893900918477.5 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 6.210169418915603e+25,
+      "scale_name": "62101694189156.0 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 7.880462815669871e+26,
+      "scale_name": "788046281566987.1 TeV",
+      "lambda_eff": 1.0906276874616962e-52,
+      "omega_eff": -1.0,
+      "beta_lambda": -0.0,
+      "running": "at fixed point (\u039b \u2248 \u039b_obs)"
+    },
+    {
+      "scale_eV": 1e+28,
+      "scale_name": "10000000000000000.0 TeV",
+      "lambda_eff": 5.6545834008127895e-31,
+      "omega_eff": -1.0,
+      "beta_lambda": 5.184705528587072e+20,
+      "running": "flowing toward fixed point"
+    }
+  ],
+  "dynamical_dark_energy": [
+    {
+      "scale_factor": 0.001,
+      "redshift": 999.0,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 314999999.99999994,
+      "rho_total": 406500000.68499994,
+      "acceleration": -0.4999999974723247
+    },
+    {
+      "scale_factor": 0.0012067926406393288,
+      "redshift": 827.6427728546843,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 179230779.91407624,
+      "rho_total": 222371807.82471135,
+      "acceleration": -0.4999999953793603
+    },
+    {
+      "scale_factor": 0.0014563484775012444,
+      "redshift": 685.6488450042998,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 101979912.59875567,
+      "rho_total": 122320331.09887032,
+      "acceleration": -0.4999999915999246
+    },
+    {
+      "scale_factor": 0.0017575106248547913,
+      "redshift": 567.9866029018299,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 58025204.03379161,
+      "rho_total": 67615439.89630699,
+      "acceleration": -0.4999999848037666
+    },
+    {
+      "scale_factor": 0.0021209508879201904,
+      "redshift": 470.48663634573944,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 33015563.72587262,
+      "rho_total": 37537232.13648393,
+      "acceleration": -0.4999999726271773
+    },
+    {
+      "scale_factor": 0.002559547922699536,
+      "redshift": 389.6939937054617,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 18785413.447273124,
+      "rho_total": 20917320.038894687,
+      "acceleration": -0.49999995087802845
+    },
+    {
+      "scale_factor": 0.0030888435964774815,
+      "redshift": 322.74575428176433,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 10688648.581470279,
+      "rho_total": 11693814.411388895,
+      "acceleration": -0.49999991213303346
+    },
+    {
+      "scale_factor": 0.003727593720314938,
+      "redshift": 267.2695795279727,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 6081697.84598225,
+      "rho_total": 6555620.464131907,
+      "acceleration": -0.4999998432642638
+    },
+    {
+      "scale_factor": 0.004498432668969444,
+      "redshift": 221.29964825261956,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 3460404.5972608123,
+      "rho_total": 3683853.140412014,
+      "acceleration": -0.4999997210800863
+    },
+    {
+      "scale_factor": 0.005428675439323859,
+      "redshift": 183.20699693267164,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 1968923.8564613026,
+      "rho_total": 2074277.2204996727,
+      "acceleration": -0.499999504646732
+    },
+    {
+      "scale_factor": 0.006551285568595509,
+      "redshift": 151.64179671752333,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 1120291.2964602855,
+      "rho_total": 1169964.361730099,
+      "acceleration": -0.49999912176812084
+    },
+    {
+      "scale_factor": 0.0079060432109077,
+      "redshift": 125.48552168552959,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 637430.7390334242,
+      "rho_total": 660851.287526125,
+      "acceleration": -0.4999984451872616
+    },
+    {
+      "scale_factor": 0.009540954763499945,
+      "redshift": 103.81131341546852,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 362689.5507878303,
+      "rho_total": 373732.3884496802,
+      "acceleration": -0.4999972507065704
+    },
+    {
+      "scale_factor": 0.01151395399326447,
+      "redshift": 85.8511373751353,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 206365.49541075874,
+      "rho_total": 211572.4078273105,
+      "acceleration": -0.49999514350661056
+    },
+    {
+      "scale_factor": 0.013894954943731374,
+      "redshift": 70.96856730011521,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 117419.20218992067,
+      "rho_total": 119874.55384260163,
+      "acceleration": -0.4999914285395269
+    },
+    {
+      "scale_factor": 0.016768329368110076,
+      "redshift": 58.63623316594645,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 66809.95296948608,
+      "rho_total": 67967.98049290868,
+      "acceleration": -0.4999848825874692
+    },
+    {
+      "scale_factor": 0.020235896477251564,
+      "redshift": 48.41713361323836,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 38013.96818013889,
+      "rho_total": 38560.3247136073,
+      "acceleration": -0.4999733534401582
+    },
+    {
+      "scale_factor": 0.02442053094548651,
+      "redshift": 39.94915062380425,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 21629.438617635453,
+      "rho_total": 21887.400453500097,
+      "acceleration": -0.4999530551834064
+    },
+    {
+      "scale_factor": 0.029470517025518096,
+      "redshift": 32.9322177189533,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 12306.860801722058,
+      "rho_total": 12428.848391673553,
+      "acceleration": -0.49991732942846995
+    },
+    {
+      "scale_factor": 0.03556480306223128,
+      "redshift": 27.117686979742313,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 7002.438919957518,
+      "rho_total": 7060.316470073775,
+      "acceleration": -0.49985446827994817
+    },
+    {
+      "scale_factor": 0.04291934260128776,
+      "redshift": 22.29951810515373,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 3984.2939330941877,
+      "rho_total": 4011.944456172537,
+      "acceleration": -0.4997438897743415
+    },
+    {
+      "scale_factor": 0.0517947467923121,
+      "redshift": 18.306977288832506,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 2267.00986995363,
+      "rho_total": 2280.4087537271444,
+      "acceleration": -0.4995494228838051
+    },
+    {
+      "scale_factor": 0.0625055192527397,
+      "redshift": 14.998587196060589,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 1289.8982446498358,
+      "rho_total": 1296.5776709451006,
+      "acceleration": -0.4992075291569297
+    },
+    {
+      "scale_factor": 0.07543120063354615,
+      "redshift": 12.257113655901096,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 733.9348203123429,
+      "rho_total": 737.4461122031198,
+      "acceleration": -0.4986066778534769
+    },
+    {
+      "scale_factor": 0.09102981779915217,
+      "redshift": 9.985411419875584,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 417.5990801608845,
+      "rho_total": 419.61663901779815,
+      "acceleration": -0.49755133637597143
+    },
+    {
+      "scale_factor": 0.10985411419875583,
+      "redshift": 8.102981779915218,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 237.60828199567038,
+      "rho_total": 238.9215656888493,
+      "acceleration": -0.49569942547028956
+    },
+    {
+      "scale_factor": 0.13257113655901082,
+      "redshift": 6.543120063354623,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 135.1959291940568,
+      "rho_total": 136.1771565592246,
+      "acceleration": -0.49245468163705464
+    },
+    {
+      "scale_factor": 0.15998587196060574,
+      "redshift": 5.250551925273976,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 76.92467247828263,
+      "rho_total": 77.74933972227916,
+      "acceleration": -0.48678445368577744
+    },
+    {
+      "scale_factor": 0.19306977288832497,
+      "redshift": 4.1794746792312125,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 43.769108072753866,
+      "rho_total": 44.519959311833475,
+      "acceleration": -0.47692046408212035
+    },
+    {
+      "scale_factor": 0.2329951810515372,
+      "redshift": 3.2919342601287784,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 24.904036114359258,
+      "rho_total": 25.6200840935721,
+      "acceleration": -0.4598947452222535
+    },
+    {
+      "scale_factor": 0.2811768697974228,
+      "redshift": 2.5564803062231323,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 14.170062907253794,
+      "rho_total": 14.86970161453819,
+      "acceleration": -0.4308997566571607
+    },
+    {
+      "scale_factor": 0.3393221771895326,
+      "redshift": 1.9470517025518128,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 8.062575956503554,
+      "rho_total": 8.754477911361525,
+      "acceleration": -0.38263149323085105
+    },
+    {
+      "scale_factor": 0.4094915062380423,
+      "redshift": 1.4420530945486525,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 4.587497704128925,
+      "rho_total": 5.27575188360912,
+      "acceleration": -0.30524103053589935
+    },
+    {
+      "scale_factor": 0.4941713361323833,
+      "redshift": 1.0235896477251578,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 2.6102247344922587,
+      "rho_total": 3.2967590366294406,
+      "acceleration": -0.18833026964248456
+    },
+    {
+      "scale_factor": 0.5963623316594643,
+      "redshift": 0.6768329368110082,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 1.485182904489079,
+      "rho_total": 2.170906307442877,
+      "acceleration": -0.02669537304431242
+    },
+    {
+      "scale_factor": 0.7196856730011514,
+      "redshift": 0.3894954943731388,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.8450491755131159,
+      "rho_total": 1.530390250338525,
+      "acceleration": 0.1713973770890891
+    },
+    {
+      "scale_factor": 0.868511373751352,
+      "redshift": 0.15139539932644808,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.4808216596601996,
+      "rho_total": 1.1659824718823737,
+      "acceleration": 0.38123108603956446
+    },
+    {
+      "scale_factor": 1.0481131341546852,
+      "redshift": -0.045904523650005524,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.2735810827316765,
+      "rho_total": 0.9586569035453927,
+      "acceleration": 0.5718120280571762
+    },
+    {
+      "scale_factor": 1.2648552168552958,
+      "redshift": -0.20939567890922983,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.15566397088170092,
+      "rho_total": 0.8406997193821251,
+      "acceleration": 0.7221961971810392
+    },
+    {
+      "scale_factor": 1.5264179671752318,
+      "redshift": -0.3448714431404484,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.08857071398618854,
+      "rho_total": 0.7735875689264079,
+      "acceleration": 0.8282271345517797
+    },
+    {
+      "scale_factor": 1.8420699693267144,
+      "redshift": -0.45713245606761355,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.050395549667590966,
+      "rho_total": 0.7354034965466608,
+      "acceleration": 0.897192160256211
+    },
+    {
+      "scale_factor": 2.2229964825261934,
+      "redshift": -0.5501567331030552,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.02867439260673299,
+      "rho_total": 0.7136781394540151,
+      "acceleration": 0.9397246366353156
+    },
+    {
+      "scale_factor": 2.6826957952797246,
+      "redshift": -0.6272406279685059,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.016315345239578335,
+      "rho_total": 0.7013171118280003,
+      "acceleration": 0.9651004269977046
+    },
+    {
+      "scale_factor": 3.2374575428176433,
+      "redshift": -0.6911156403522518,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.00928321286303821,
+      "rho_total": 0.6942840457858711,
+      "acceleration": 0.9799418281849708
+    },
+    {
+      "scale_factor": 3.906939937054613,
+      "redshift": -0.7440452077300461,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.005282023750954693,
+      "rho_total": 0.6902824164629395,
+      "acceleration": 0.9885211842204956
+    },
+    {
+      "scale_factor": 4.714866363457389,
+      "redshift": -0.7879049112079808,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.0030054007505024892,
+      "rho_total": 0.6880055859089553,
+      "acceleration": 0.9934471769477327
+    },
+    {
+      "scale_factor": 5.689866029018293,
+      "redshift": -0.8242489375145207,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.0017100327633870192,
+      "rho_total": 0.6867101200631232,
+      "acceleration": 0.9962645372192144
+    },
+    {
+      "scale_factor": 6.866488450042998,
+      "redshift": -0.8543651522498755,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.000972985732890408,
+      "rho_total": 0.6859730268935493,
+      "acceleration": 0.9978723065148297
+    },
+    {
+      "scale_factor": 8.286427728546842,
+      "redshift": -0.8793207359360671,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.0005536158468292599,
+      "rho_total": 0.6855536352535299,
+      "acceleration": 0.9987886390829398
+    },
+    {
+      "scale_factor": 10.0,
+      "redshift": -0.9,
+      "w_de": -1.0,
+      "rho_de": 0.685,
+      "rho_matter": 0.000315,
+      "rho_total": 0.68531500915,
+      "acceleration": 0.9993105160127954
+    }
+  ],
+  "landscape_scan": {
+    "n_vacua_scanned": 10000,
+    "n_anthropic_ok": 674,
+    "fraction_anthropic": 0.0674,
+    "n_galaxy_formation": 4407,
+    "fraction_galaxy": 0.4407,
+    "closest_to_observed": {
+      "vacuum_id": 5678,
+      "lambda_ratio": 0.9855324470742532,
+      "notes": "ANTHROPIC: in habitable range"
+    }
+  }
+}
