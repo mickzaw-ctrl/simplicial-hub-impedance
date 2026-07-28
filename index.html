@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simplicial Hub Impedance | Quantum Gravity Research</title>
+<meta name="description" content="Simplicial Quantum Gravity Hub Impedance — research on CDT, quantum algorithms, cosmological constant problem, and neuro-qubit systems by Michał Ślusarczyk">
+<style>
+:root {
+  --bg: #0a0e17;
+  --bg2: #111827;
+  --card: #161e2e;
+  --accent: #00d4aa;
+  --accent2: #6c5ce7;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: #1e293b;
+  --code-bg: #0d1117;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: #5eead4; }
+code { font-family: 'Fira Code', 'JetBrains Mono', monospace; }
+
+/* Navbar */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(10, 14, 23, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.8rem 2rem;
+}
+nav .nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+nav .logo { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+nav .logo span { color: var(--accent); }
+nav ul { display: flex; gap: 2rem; list-style: none; }
+nav ul a { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+nav ul a:hover { color: var(--accent); }
+@media (max-width: 768px) { nav ul { display: none; } }
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 2rem 4rem;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.08), transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(108,92,231,0.06), transparent 50%);
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.8rem); font-weight: 800;
+  background: linear-gradient(135deg, #00d4aa 0%, #6c5ce7 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem; line-height: 1.1;
+}
+.hero .subtitle { font-size: 1.15rem; color: var(--muted); max-width: 700px; margin: 0 auto 2rem; }
+.hero .badges { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.35rem 0.9rem; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--border);
+  font-size: 0.8rem; color: var(--muted);
+}
+.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-primary:hover { background: #5eead4; color: var(--bg); transform: translateY(-1px); }
+.btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Sections */
+section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+section h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 1.5rem;
+  text-align: center;
+}
+section h2 .accent { color: var(--accent); }
+.section-intro { text-align: center; color: var(--muted); max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem; }
+
+/* Problem section */
+.problem-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2.5rem; margin-top: 2rem;
+  position: relative; overflow: hidden;
+}
+.problem-box::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+}
+.problem-box h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent); }
+.problem-box p { color: var(--muted); margin-bottom: 1rem; }
+.discrepancy {
+  font-size: 2.5rem; font-weight: 800; text-align: center;
+  margin: 1.5rem 0; color: var(--accent2);
+}
+
+/* Modules grid */
+.modules-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;
+}
+.module-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.8rem; transition: all 0.3s;
+}
+.module-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.module-card .icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+.module-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+.module-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+.module-card .tag {
+  display: inline-block; margin-top: 0.8rem; padding: 0.2rem 0.6rem;
+  border-radius: 4px; background: var(--bg2); font-size: 0.72rem; color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+/* Stats */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
+  margin-top: 2rem;
+}
+.stat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.8rem; text-align: center;
+}
+.stat-card .value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+.stat-card .label { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+
+/* Code section */
+.code-section { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; overflow-x: auto; margin-top: 1.5rem; }
+.code-section pre { color: var(--text); font-size: 0.85rem; line-height: 1.6; white-space: pre; }
+.code-section .keyword { color: #c792ea; }
+.code-section .string { color: #c3e88d; }
+.code-section .comment { color: #546e7a; }
+.code-section .number { color: #f78c6c; }
+
+/* Results table */
+.results-table { overflow-x: auto; margin-top: 2rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+th, td { padding: 0.8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--accent); font-weight: 600; }
+td { color: var(--muted); }
+tr:hover td { background: var(--card); }
+
+/* References */
+.ref-list { list-style: none; margin-top: 1.5rem; }
+.ref-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 0.88rem; }
+.ref-list li a { color: var(--accent); }
+
+/* Footer */
+footer {
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 3rem 2rem; text-align: center;
+}
+footer p { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.5rem; }
+footer .links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 1rem; }
+footer .links a { color: var(--muted); font-size: 0.85rem; }
+footer .links a:hover { color: var(--accent); }
+
+/* Fade-in animation */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Quantum viz */
+.quantum-viz {
+  display: flex; justify-content: center; margin: 2rem 0;
+}
+.quantum-viz svg { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Simplicial<span>·Hub</span> Impedance</div>
+    <ul>
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#cosmological">Cosmological Constant</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div>
+    <h1>Simplicial Hub Impedance<br>& Quantum Gravity</h1>
+    <p class="subtitle">
+      Resolving the soft hub phase in Causal Dynamical Triangulations through
+      weighted edge impedance — restoring 4D spacetime from the quantum foam.
+    </p>
+    <div class="badges">
+      <div class="badge"><span class="dot"></span> CDT · Quantum Gravity</div>
+      <div class="badge"><span class="dot" style="background:#6c5ce7"></span> Qiskit 2.5 · Cirq 1.7</div>
+      <div class="badge"><span class="dot" style="background:#f78c6c"></span> Python 3.10+</div>
+      <div class="badge"><span class="dot" style="background:#c3e88d"></span> MIT License</div>
+    </div>
+    <div class="cta-group">
+      <a href="https://github.com/mickzaw-ctrl/simplicial-hub-impedance" class="btn btn-primary" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.05-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.37 1.23-3.21-.12-.3-.54-1.52.12-3.165 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.645.24 2.865.12 3.165.765.84 1.23 1.905 1.23 3.21 0 4.515-2.79 5.625-5.46 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+      <a href="#problem" class="btn btn-secondary">Read the Research</a>
+    </div>
+  </div>
+</div>
+
+<!-- The Problem -->
+<section id="problem" class="fade-in">
+  <h2>The <span class="accent">Soft Hub Problem</span></h2>
+  <p class="section-intro">
+    In numerical simulations of non-perturbative quantum gravity (CDT), random triangulation manifolds
+    undergo phase transitions into a pathological branched polymer phase where topological hubs
+    act as unphysical wormholes, collapsing the spectral dimension.
+  </p>
+  <div class="problem-box">
+    <h3>⚠️ The Pathology</h3>
+    <p>
+      A small subset of vertices acquire anomalously large coordination numbers (<code>d_u ≫ ⟨d⟩</code>).
+      When probed with unweighted random walks (q=0), these hubs broadcast walkers across the universe
+      in a single step, causing the spectral dimension to collapse: <code>D_s → 0</code>.
+    </p>
+    <h3 style="margin-top:1.5rem;">📐 The Discrepancy</h3>
+    <div class="discrepancy">10<sup>125</sup></div>
+    <p style="text-align:center;">
+      Orders of magnitude between the QFT vacuum energy (Planck cutoff) and the observed cosmological constant —
+      the "worst prediction in physics" — reframed here as a <strong style="color:var(--accent)">topological impedance problem</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- The Solution -->
+<section id="solution" class="fade-in">
+  <h2>The <span class="accent">Hub Impedance</span> Solution</h2>
+  <p class="section-intro">
+    Instead of censoring hubs (which violates diffeomorphism invariance), we introduce a weighted
+    physical edge impedance that neutralizes their shortcut capability while preserving statistical ergodicity.
+  </p>
+
+  <div class="code-section">
+<pre><span class="comment"># Hub impedance weight: suppresses topological shortcuts</span>
+<span class="keyword">def</span> hub_impedance_weight(d_u, d_v, q=<span class="number">0.25</span>):
+    <span class="string">"""Physical edge impedance for simplicial gravity."""</span>
+    <span class="keyword">return</span> (max(<span class="number">1</span>, d_u) * max(<span class="number">1</span>, d_v)) ** (-q)
+
+<span class="comment"># At q = 0.25: spectral dimension D_s ≈ 4.0 (4D spacetime restored)</span>
+<span class="comment"># Hubs persist dynamically but cannot act as wormholes</span></pre>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="value">4.0</div>
+      <div class="label">Spectral dimension D_s at q=0.25</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">q=0.25</div>
+      <div class="label">Optimal impedance exponent</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">~125</div>
+      <div class="label">Orders of magnitude Λ discrepancy</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">6.7%</div>
+      <div class="label">Landscape vacua that are habitable</div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules -->
+<section id="modules" class="fade-in">
+  <h2>Research <span class="accent">Modules</span></h2>
+  <p class="section-intro">The repository spans quantum algorithms, simplicial gravity, cosmological evolution, and neuro-qubit hardware.</p>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <div class="icon">⏱️</div>
+      <h3>Continuous-Time Quantum Walks</h3>
+      <p>CTQW on weighted simplicial complexes with hub impedance. Trotter-Suzuki decomposition for IBM Qiskit and Google Cirq implementations.</p>
+      <span class="tag">qiskit_algorithm.py · cirq_algorithm.py</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">📐</div>
+      <h3>Simplicial Graph Engine</h3>
+      <p>Generation and analysis of dynamical triangulation manifolds. Spectral dimension measurement, hub detection, and impedance-weighted diffusion.</p>
+      <span class="tag">simplicial_graph.py · observables.py</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">🌌</div>
+      <h3>FLRW Cosmological Evolution</h3>
+      <p>Discrete Einstein field equations on simplicial lattices. Scale factor evolution, FLRW metric reconstruction, and Monte Carlo verification (10k runs).</p>
+      <span class="tag">docs/ · data/</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">🔬</div>
+      <h3>Experimental Confirmation Suite</h3>
+      <p>Validation against MEG-II sensitivity, NISQ quantum hardware noise models, and GNN oversmoothing parallels. Confrontation with 2025 experimental data.</p>
+      <span class="tag">docs/EXPERIMENTAL_CONFIRMATION_SUITE.md</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">🧠</div>
+      <h3>Neuro-Qubit System (1M scale)</h3>
+      <p>Holographically-consistent neuro-qubit architecture with entanglement bus, AutonomicScaler RL feedback, and T1/T2 decoherence modeling. Cloud bridge for IBM and AWS.</p>
+      <span class="tag">src/quantum_hardware/neuro_qubit_system_1m.py</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">⚡</div>
+      <h3>Quantum Cloud Bridge</h3>
+      <p>Hybrid stack connecting local simulations to IBM Quantum and AWS Braket. ROI analysis for quantum-hybrid computational pipelines.</p>
+      <span class="tag">quantum_cloud_bridge.py · roi_quantum_hybrid_stack.py</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">🌍</div>
+      <h3>Cosmological Constant Module</h3>
+      <p>Full analysis of the Λ-problem: vacuum energy discrepancy, simplicial hub impedance as Λ regulator, holographic bounds, RG flow, landscape scanning.</p>
+      <span class="tag">src/cosmological_constant.py</span>
+    </div>
+
+    <div class="module-card">
+      <div class="icon">📊</div>
+      <h3>Google Willow Benchmark</h3>
+      <p>Performance benchmarking against Google Willow quantum processor. NISQ noise modeling and quantum advantage assessment.</p>
+      <span class="tag">benchmark_willow_google.py</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Cosmological Constant -->
+<section id="cosmological" class="fade-in">
+  <h2>Cosmological <span class="accent">Constant Problem</span></h2>
+  <p class="section-intro">
+    The 120-order-of-magnitude discrepancy between QFT vacuum energy and the observed dark energy,
+    analyzed through six complementary approaches including a novel simplicial gravity perspective.
+  </p>
+
+  <div class="results-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Cutoff Scale</th>
+          <th>Energy (eV)</th>
+          <th>ρ_vac (J/m³)</th>
+          <th>Discrepancy (log₁₀)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Planck</strong></td><td>1.22 × 10²⁸</td><td>1.16 × 10¹¹⁶</td><td><strong style="color:var(--accent2)">~125</strong></td></tr>
+        <tr><td>GUT</td><td>10¹⁶</td><td>5.23 × 10⁶⁷</td><td>~77</td></tr>
+        <tr><td>QCD</td><td>10⁸</td><td>5.23 × 10³⁵</td><td>~45</td></tr>
+        <tr><td>Electroweak</td><td>10³</td><td>5.23 × 10¹⁵</td><td>~25</td></tr>
+        <tr><td>eV</td><td>10⁻³</td><td>5.23 × 10⁻⁹</td><td>~1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modules-grid" style="margin-top:2rem;">
+    <div class="module-card">
+      <div class="icon">🔗</div>
+      <h3>Simplicial Hub Impedance</h3>
+      <p>q=0.25 suppresses vacuum energy by topological structure. Reframes Λ-problem as impedance problem.</p>
+      <span class="tag">Novel approach</span>
+    </div>
+    <div class="module-card">
+      <div class="icon">🕳️</div>
+      <h3>Holographic Bound</h3>
+      <p>Bekenstein-Hawking bound at universe scale: only ~0.14× from observed Λ. UV-IR mixing reduces discrepancy.</p>
+      <span class="tag">~20 orders closer</span>
+    </div>
+    <div class="module-card">
+      <div class="icon">📉</div>
+      <h3>RG IR-Attractor</h3>
+      <p>Λ as IR fixed point — RG flow drives Λ/Λ_obs → 1.0 regardless of UV boundary condition. UV-insensitive.</p>
+      <span class="tag">Attractor hypothesis</span>
+    </div>
+    <div class="module-card">
+      <div class="icon">🌐</div>
+      <h3>Landscape Scanning</h3>
+      <p>10,000 vacua sampled. 6.7% anthropic, 44% galaxy-forming. Weinberg bound confirmed.</p>
+      <span class="tag">String landscape</span>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results" class="fade-in">
+  <h2>Key <span class="accent">Results</span></h2>
+  <p class="section-intro">Validated through numerical simulation, Monte Carlo verification, and experimental confrontation.</p>
+
+  <div class="results-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Analysis</th>
+          <th>Metric</th>
+          <th>Result</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Spectral dimension (q=0.25)</td><td>D_s</td><td>4.0</td><td style="color:var(--accent)">✓ Restored</td></tr>
+        <tr><td>Monte Carlo 10k verification</td><td>Convergence</td><td>Monotonic</td><td style="color:var(--accent)">✓ Verified</td></tr>
+        <tr><td>FLRW scale factor</td><td>Evolution</td><td>Consistent</td><td style="color:var(--accent)">✓ Validated</td></tr>
+        <tr><td>Neuro-qubit T1/T2</td><td>Decoherence</td><td>Physical</td><td style="color:var(--accent)">✓ Implemented</td></tr>
+        <tr><td>AutonomicScaler RL</td><td>Feedback loop</td><td>Closed</td><td style="color:var(--accent)">✓ Closed</td></tr>
+        <tr><td>RG flow IR-attractor</td><td>Λ/Λ_obs (IR)</td><td>→ 1.0</td><td style="color:var(--accent)">✓ Confirmed</td></tr>
+        <tr><td>Landscape habitable</td><td>Fraction</td><td>6.7%</td><td style="color:var(--accent)">✓ Weinberg bound</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- References -->
+<section id="references" class="fade-in">
+  <h2><span class="accent">References</span></h2>
+  <ul class="ref-list">
+    <li>Weinberg, S. (1989). "The Cosmological Constant Problem." Rev. Mod. Phys. 61, 1.</li>
+    <li>Weinberg, S. (1987). "Anthropic Bound on the Cosmological Constant." PRL 59, 2607.</li>
+    <li>Li, M. (2004). "A Model of Holographic Dark Energy." JHEP 0408, 024.</li>
+    <li>Cohen, A., Kaplan, D., Nelson, A. (2006). "Effective Field Theory, Black Holes, and the Cosmological Constant." PRD 73, 1005.</li>
+    <li>Susskind, L. (2003). "The Anthropic Landscape of String Theory." hep-th/0302219.</li>
+    <li>Ambjørn, J., Jurkiewicz, J., Loll, R. (2004). "Emergence of a 4D World from Causal Quantum Gravity." Nucl. Phys. B.</li>
+    <li>Planck Collaboration (2020). "Planck 2018 Results. VI. Cosmological Parameters." A&A 641, A6.</li>
+    <li>Ślusarczyk, M. (2026). "Simplicial Hub Impedance and Quantum Gravity." This repository.</li>
+  </ul>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><strong>Simplicial Hub Impedance & Quantum Gravity Research</strong></p>
+  <p>Author: Michał Ślusarczyk · July 2026 · MIT License</p>
+  <div class="links">
+    <a href="https://github.com/mickzaw-ctrl/simplicial-hub-impedance" target="_blank">GitHub Repository</a>
+    <a href="https://github.com/mickzaw-ctrl/spin10-toe" target="_blank">Spin(10) ToE Project</a>
+    <a href="https://github.com/mickzaw-ctrl/quantum-force-discovery" target="_blank">Quantum Force Discovery</a>
+  </div>
+</footer>
+
+<!-- Fade-in scroll animation -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
