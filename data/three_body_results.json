@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "title": "Three-Body Problem \u2014 Analysis & Simulation Report",
+    "author": "Micha\u0142 \u015alusarczyk",
+    "date": "July 2026",
+    "description": "Numerical simulation of the gravitational three-body problem with chaos analysis, stability maps, and special solutions."
+  },
+  "special_solutions": {
+    "Lagrange": {
+      "initial_state": "[[1.0936737626584067e-16, 0.5773502691896258, 0.0], [-0.5, -0.2886751345948127, 0.0], [0.49999999999999994, -0.28867513459481314, 0.0]]",
+      "energy_initial": -1.5,
+      "energy_final": -1.499999999998392,
+      "energy_drift": 1.0720313525780512e-12,
+      "period_T": 6.283185307179586,
+      "label": "Lagrange equilateral triangle"
+    },
+    "Euler": {
+      "initial_state": "[[-1.0, 0.0, 0.0], [0.0, 0.0, 0.0], [1.0, 0.0, 0.0]]",
+      "energy_initial": -1.75,
+      "energy_final": -1.7499999987448396,
+      "energy_drift": 7.172345257393837e-10,
+      "period_T": 6.283185307179586,
+      "label": "Euler collinear"
+    },
+    "Figure-8": {
+      "initial_state": "[[0.9740060304055, 0.0, 0.0], [-0.4832858110751, 0.0, 0.0], [-0.9740060304055, 0.0, 0.0]]",
+      "energy_initial": -2.934282403628935,
+      "energy_final": -2.9342825848310534,
+      "energy_drift": 6.175346925536334e-08,
+      "period_T": 6.283185307179586,
+      "label": "Figure-8 (Chenciner-Montgomery)"
+    }
+  },
+  "stability_analysis": {
+    "Lagrange": {
+      "is_stable": false,
+      "classification": "chaotic",
+      "energy_drift": 1.7615538657385816e-14,
+      "angular_momentum_drift": 8.717430844938823e-15,
+      "lyapunov": 5.367440034083399,
+      "min_separation": 0.9999999999999187,
+      "max_separation": 1.0000000150000279,
+      "escape": false,
+      "collision": false
+    },
+    "Euler": {
+      "is_stable": false,
+      "classification": "chaotic",
+      "energy_drift": 3.30322453834242e-08,
+      "angular_momentum_drift": 5.768888059150692e-15,
+      "lyapunov": 16.449503672971975,
+      "min_separation": 0.42857144128448477,
+      "max_separation": 2.0,
+      "escape": false,
+      "collision": false
+    },
+    "Figure-8": {
+      "is_stable": false,
+      "classification": "escape",
+      "energy_drift": 8187.738694639033,
+      "angular_momentum_drift": 1.0859044408799697e-11,
+      "lyapunov": 13.308285798010449,
+      "min_separation": 0.000790911520573547,
+      "max_separation": 135.38465014066404,
+      "escape": true,
+      "collision": false
+    }
+  },
+  "lyapunov_analysis": {
+    "Lagrange": {
+      "lyapunov_exponent": 6.051712023147344,
+      "is_chaotic": "True",
+      "interpretation": "chaotic"
+    },
+    "Figure-8": {
+      "lyapunov_exponent": 7.9364769609920485,
+      "is_chaotic": "True",
+      "interpretation": "chaotic"
+    }
+  },
+  "integrator_comparison": {
+    "integrators": [
+      "RK4",
+      "Verlet",
+      "Leapfrog"
+    ],
+    "dt_values": [
+      0.1,
+      0.01,
+      0.001
+    ],
+    "data": {
+      "dt=0.1": {
+        "RK4": {
+          "energy_drift": 7.549234068715549e-05,
+          "momentum_drift": 3.774422879885235e-05,
+          "n_steps": 100,
+          "dt": 0.1
+        },
+        "Verlet": {
+          "energy_drift": 0.00011203663708503342,
+          "momentum_drift": 5.127900497022837e-16,
+          "n_steps": 100,
+          "dt": 0.1
+        },
+        "Leapfrog": {
+          "energy_drift": 0.00011203663708281297,
+          "momentum_drift": 3.8459253727671276e-16,
+          "n_steps": 100,
+          "dt": 0.1
+        }
+      },
+      "dt=0.01": {
+        "RK4": {
+          "energy_drift": 7.500483197494153e-10,
+          "momentum_drift": 3.7502425954180544e-10,
+          "n_steps": 1000,
+          "dt": 0.01
+        },
+        "Verlet": {
+          "energy_drift": 1.0784690918086426e-08,
+          "momentum_drift": 1.41017263668128e-15,
+          "n_steps": 1000,
+          "dt": 0.01
+        },
+        "Leapfrog": {
+          "energy_drift": 1.0784692250354055e-08,
+          "momentum_drift": 8.973825869789963e-16,
+          "n_steps": 1000,
+          "dt": 0.01
+        }
+      },
+      "dt=0.001": {
+        "RK4": {
+          "energy_drift": 7.549516567451064e-15,
+          "momentum_drift": 3.7177278603415564e-15,
+          "n_steps": 10000,
+          "dt": 0.001
+        },
+        "Verlet": {
+          "energy_drift": 1.0720313525780512e-12,
+          "momentum_drift": 2.948542785788131e-15,
+          "n_steps": 10000,
+          "dt": 0.001
+        },
+        "Leapfrog": {
+          "energy_drift": 1.0712912038949678e-12,
+          "momentum_drift": 3.4613328354904148e-15,
+          "n_steps": 10000,
+          "dt": 0.001
+        }
+      }
+    }
+  },
+  "sitnikov_analysis": {
+    "e=0.0": {
+      "n_crossings": 95,
+      "period_cv": 5.058419086745938e-05,
+      "is_chaotic": "False",
+      "classification": "periodic"
+    },
+    "e=0.3": {
+      "n_crossings": 93,
+      "period_cv": 0.055377311302288575,
+      "is_chaotic": "False",
+      "classification": "periodic"
+    },
+    "e=0.5": {
+      "n_crossings": 8,
+      "period_cv": 0.37982917967313456,
+      "is_chaotic": "True",
+      "classification": "chaotic"
+    },
+    "e=0.7": {
+      "n_crossings": 6,
+      "period_cv": 0,
+      "is_chaotic": false,
+      "classification": "periodic"
+    }
+  }
+}
